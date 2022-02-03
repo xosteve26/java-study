@@ -10,17 +10,19 @@ class Main {
     int numberOfMonths=period*12;
     float m_rate = (rate/100)/12;
 
-    
-
     double m=principal*(m_rate*Math.pow(1+m_rate,numberOfMonths))/(Math.pow(1+m_rate,numberOfMonths)-1);
     
-    System.out.println("MORTGAGE");
-    System.out.println("-----------");
-    System.out.println("$"+Math.round(m*100.0)/100.0);
-    System.out.println();
-
+    display_mortgage(m);
     balance(principal, m_rate, numberOfMonths);
   }
+
+  private static void display_mortgage(double mortgage){
+    System.out.println("MORTGAGE");
+    System.out.println("-----------");
+    System.out.println("$"+Math.round(mortgage*100.0)/100.0);
+    System.out.println();
+  }
+
 
   public static double get_value(String sm,double value1, double value2){
     Scanner scanner= new Scanner(System.in);
