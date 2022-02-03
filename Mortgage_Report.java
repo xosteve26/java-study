@@ -17,14 +17,9 @@ public class Mortgage_Report{
   public void display_balance(){
     System.out.println("Remaining Balance");
     System.out.println("-----------------");
-    int month=1;
-    while(month<=calculator.numberOfMonths){
-      double balance=calculator.balance(month);
-      System.out.println("$"+Math.round(balance*100.0)/100.0);
-      month+=1;
-     
-     }
-    
+    for (double balance:calculator.balance()){
+      System.out.println("$"+balance);
+    } 
   }
    
 }

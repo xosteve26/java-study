@@ -1,7 +1,7 @@
 public class Mortgage_Calculator{
   private int principal;
   private float rate;
-  public int numberOfMonths;
+  private int numberOfMonths;
 
   public Mortgage_Calculator(int principal, float rate, int period){
 
@@ -18,13 +18,17 @@ public class Mortgage_Calculator{
       return m;
   }
 
-  public double balance(int month){
+  public double[] balance(){
+    var balances=new double[numberOfMonths];
+    int month=1;
+    while(month<=numberOfMonths){
+      double bal=principal*(Math.pow((1+rate),numberOfMonths) -(Math.pow((1+rate),month)))/(Math.pow((1+rate),numberOfMonths)-1);
+      balances[month-1]=(Math.round(bal*100.0)/100.0);
+      month+=1;
      
-     double bal=principal*(Math.pow((1+rate),numberOfMonths) -(Math.pow((1+rate),month)))/(Math.pow((1+rate),numberOfMonths)-1);
-
-     return bal;
-    
+     }
      
+     return balances;
      
    }
   
