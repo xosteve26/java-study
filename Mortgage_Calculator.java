@@ -3,11 +3,11 @@ public class Mortgage_Calculator{
   private float rate;
   public int numberOfMonths;
 
-  public Mortgage_Calculator(int principal, float rate, int numberOfMonths){
+  public Mortgage_Calculator(int principal, float rate, int period){
 
     this.principal=principal;
-    this.rate=rate;
-    this.numberOfMonths=numberOfMonths;
+    this.rate=(rate/100)/12;
+    this.numberOfMonths=period*12;
 
   }
 
